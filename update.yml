@@ -1,0 +1,11 @@
+---
+- name: Update debian servers
+  hosts: debian
+  tasks:
+   - name: Update servers using apt
+     become: true
+     apt:
+       upgrade: yes
+       update_cache: yes
+       cache_valid_time: 86400
+...
