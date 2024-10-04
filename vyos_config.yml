@@ -1,0 +1,12 @@
+---
+- name: VyOS config
+  hosts: dn42routers
+  tasks:
+ - name: configure the remote device
+   vyos.vyos.vyos_config:
+     lines:
+     	- set nat source rule 20 description 'home to DN42'
+		- set nat source rule 20 outbound-interface group DN42-EXT
+		- set nat source rule 20 source address 192.168.0.0/16
+		- set nat source rule 20 translation address 'masquerade'
+...
