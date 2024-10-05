@@ -1,0 +1,11 @@
+---
+- name: generate and push snmpd.conf to host
+  hosts:
+  tasks:
+    - name: generate new SNMP community
+      vars:
+        community: "{{ lookup('password', '/dev/null length=32 chars=ascii_letters,digits') }}"
+      tasks:
+        - debug:
+            msg: "{{ community }}"
+...
