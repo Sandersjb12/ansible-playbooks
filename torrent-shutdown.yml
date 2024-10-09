@@ -1,6 +1,6 @@
 ---
 - name: Shutdown rtorrent server
-  hosts: torrent.home.jennsanders.net
+  hosts: torrent
 
   tasks:
   - name: shutdown rtorrent process
