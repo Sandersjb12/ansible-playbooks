@@ -1,12 +1,12 @@
 ---
 - name: VyOS config
-  hosts: dn42routers
+  connection: ansible.netcommon.network_cli
+  hosts: device_roles_dn42_router
   tasks:
- - name: configure the remote device
-   vyos.vyos.vyos_config:
-     lines:
-     	- set nat source rule 20 description 'home to DN42'
-		- set nat source rule 20 outbound-interface group DN42-EXT
-		- set nat source rule 20 source address 192.168.0.0/16
-		- set nat source rule 20 translation address 'masquerade'
+   - name: Push config
+     vyos.vyos.vyos_config:
+      lines:
+       - delete protocols rpki cache 172.20.53.66
+       - set protocols rpki cache 172.20.53.89 port 323
+       - set protocols rpki cache 172.20.53.89 preference 1
 ...
