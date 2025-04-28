@@ -1,1 +1,1 @@
-some playbooks from attempt to learn ansible
+ansible playbooks for managing dn42/homelab and dn42 vyos configuration templates
